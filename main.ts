@@ -145,11 +145,12 @@ function 定義節奏陣列 () {
 input.onButtonPressed(Button.B, function () {
     _1 = 0
     while (input.buttonIsPressed(Button.A) == false) {
-        if (_1 <= 255) {
+        for (let index = 0; index < 2000000; index++) {
             strip.showRainbow(_1 * 1.8, _1 * 1.8)
             strip.setBrightness(_1)
-            _1 += 0.05
-        } else {
+            _1 += 0.0001
+        }
+        for (let index = 0; index < 2000000; index++) {
             strip.showRainbow(_1 * 1.8, _1 * 1.8)
             strip.setBrightness(_1)
             _1 += -0.05
