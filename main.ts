@@ -152,7 +152,7 @@ input.onButtonPressed(Button.B, function () {
         } else {
             strip.showRainbow(_1 * 1.8, _1 * 1.8)
             strip.setBrightness(_1)
-            _1 += 0.05
+            _1 += -0.05
         }
     }
 })
