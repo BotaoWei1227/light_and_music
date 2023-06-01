@@ -1,5 +1,5 @@
 input.onButtonPressed(Button.A, function () {
-    dfplayermini.playFileInFolder(1, 115, dfplayermini.isRepeat.No)
+    dfplayermini.playFileInFolder(2, 2, dfplayermini.isRepeat.No)
     播放時間開始ms = input.runningTime()
     索引 = 0
     while (索引 < 節奏陣列.length) {
@@ -12,9 +12,9 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 function 燈光A () {
-    隨機數 = randint(1, 360)
-    strip.showRainbow(隨機數, 隨機數)
-    strip.show()
+    隨機數B = randint(1, 180)
+    隨機數A = randint(180, 360)
+    strip.showRainbow(隨機數A, 隨機數B)
 }
 function 動作A () {
     if (索引 % 2 == 0) {
@@ -142,16 +142,17 @@ function 定義節奏陣列 () {
     ]
     basic.showNumber(節奏陣列.length)
 }
-let 隨機數 = 0
+let 隨機數A = 0
+let 隨機數B = 0
 let 播放時間已播放ms = 0
 let 節奏陣列: number[] = []
 let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
 KSB048.Servo(KSB048.ServoNum.S0, 90)
-dfplayermini.connect(SerialPin.P1, SerialPin.P2)
+dfplayermini.connect(SerialPin.P2, SerialPin.P1)
 dfplayermini.press(dfplayermini.playType.Stop)
-dfplayermini.setVolume(20)
+dfplayermini.setVolume(10)
 strip = neopixel.create(DigitalPin.P14, 12, NeoPixelMode.RGB)
 strip.setBrightness(10)
 strip.showRainbow(1, 360)
