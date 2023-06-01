@@ -3,11 +3,17 @@ input.onButtonPressed(Button.A, function () {
     播放時間開始ms = input.runningTime()
     索引 = 0
     while (索引 < 節奏陣列.length) {
+        strip.setBrightness(255)
         播放時間已播放ms = input.runningTime() - 播放時間開始ms
         if (播放時間已播放ms > 節奏陣列[索引] * 1000) {
+            if (索引 % 4 == 0 == true) {
+                燈光A()
+            }
+            strip.rotate(1)
+            strip.setPixelColor(索引 % 6, neopixel.colors(NeoPixelColors.White))
             動作A()
-            燈光A()
             索引 += 1
+            strip.show()
         }
     }
 })
@@ -144,16 +150,20 @@ function 定義節奏陣列 () {
 }
 input.onButtonPressed(Button.B, function () {
     _1 = 0
-    while (input.buttonIsPressed(Button.A) == false) {
-        for (let index = 0; index < 2000000; index++) {
-            strip.showRainbow(_1 * 1.8, _1 * 1.8)
-            strip.setBrightness(_1)
-            _1 += 0.0001
+    for (let index = 0; index < 4000; index++) {
+        strip.showRainbow(_1 * 1.8, _1 * 1.8)
+        strip.setBrightness(_1)
+        _1 += 0.05
+        if (input.buttonIsPressed(Button.A) == false) {
+            break;
         }
-        for (let index = 0; index < 2000000; index++) {
-            strip.showRainbow(_1 * 1.8, _1 * 1.8)
-            strip.setBrightness(_1)
-            _1 += -0.05
+    }
+    for (let index = 0; index < 4000; index++) {
+        strip.showRainbow(_1 * 1.8, _1 * 1.8)
+        strip.setBrightness(_1)
+        _1 += -0.05
+        if (input.buttonIsPressed(Button.A) == false) {
+            break;
         }
     }
 })
