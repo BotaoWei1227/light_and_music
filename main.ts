@@ -149,7 +149,7 @@ let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
 KSB048.Servo(KSB048.ServoNum.S0, 90)
-dfplayermini.connect(SerialPin.P2, SerialPin.P1)
+dfplayermini.connect(SerialPin.P1, SerialPin.P2)
 dfplayermini.press(dfplayermini.playType.Stop)
 dfplayermini.setVolume(20)
 strip = neopixel.create(DigitalPin.P14, 12, NeoPixelMode.RGB)
