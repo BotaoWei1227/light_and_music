@@ -142,6 +142,20 @@ function 定義節奏陣列 () {
     ]
     basic.showNumber(節奏陣列.length)
 }
+input.onButtonPressed(Button.B, function () {
+    _1 = 0
+    while (input.buttonIsPressed(Button.A) == false) {
+        if (_1 <= 255) {
+            strip.showRainbow(_1 * 1.8, _1 * 1.8)
+            strip.setBrightness(_1)
+            _1 += 0.05
+        } else {
+            strip.showRainbow(_1 * 1.8, _1 * 1.8)
+            strip.setBrightness(_1)
+            _1 += 0.05
+        }
+    }
+})
 let 隨機數A = 0
 let 隨機數B = 0
 let 播放時間已播放ms = 0
@@ -149,6 +163,7 @@ let 節奏陣列: number[] = []
 let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
+let _1 = 0
 KSB048.Servo(KSB048.ServoNum.S0, 90)
 dfplayermini.connect(SerialPin.P2, SerialPin.P1)
 dfplayermini.press(dfplayermini.playType.Stop)
