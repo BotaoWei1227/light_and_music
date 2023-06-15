@@ -149,9 +149,6 @@ function 定義節奏陣列 () {
     ]
     basic.showNumber(節奏陣列.length)
 }
-input.onButtonPressed(Button.B, function () {
-	
-})
 let z = 0
 let 隨機數A = 0
 let 隨機數B = 0
