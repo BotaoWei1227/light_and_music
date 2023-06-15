@@ -2,7 +2,7 @@ input.onButtonPressed(Button.A, function () {
     dfplayermini.playFileInFolder(2, 2, dfplayermini.isRepeat.No)
     播放時間開始ms = input.runningTime()
     索引 = 0
-    while (索引 < 61) {
+    while (索引 < 節奏陣列.length) {
         strip.setBrightness(255)
         播放時間已播放ms = input.runningTime() - 播放時間開始ms
         if (播放時間已播放ms > 節奏陣列[索引] * 1000) {
@@ -15,21 +15,6 @@ input.onButtonPressed(Button.A, function () {
             索引 += 1
             strip.show()
         }
-    }
-    while (索引 < 100) {
-        randomR = randint(0, 255)
-        ramdomG = randint(0, 255)
-        randomB = randint(0, 255)
-        strip.setBrightness(randint(0, 255))
-        strip.setPixelWhiteLED(1, neopixel.rgb(randomR, ramdomG, randomB))
-        strip.setPixelWhiteLED(2, neopixel.rgb(randomR, ramdomG, randomB))
-        strip.setPixelWhiteLED(3, neopixel.rgb(randomR, ramdomG, randomB))
-        strip.setPixelWhiteLED(4, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
-        strip.setPixelWhiteLED(5, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
-        strip.setPixelWhiteLED(6, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
-    }
-    while (索引 < 節奏陣列.length) {
-    	
     }
 })
 function 燈光A () {
@@ -176,11 +161,8 @@ input.onButtonPressed(Button.B, function () {
 })
 let 隨機數A = 0
 let 隨機數B = 0
-let randomB = 0
-let ramdomG = 0
-let randomR = 0
-let 節奏陣列: number[] = []
 let 播放時間已播放ms = 0
+let 節奏陣列: number[] = []
 let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
