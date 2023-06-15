@@ -17,13 +17,16 @@ input.onButtonPressed(Button.A, function () {
         }
     }
     while (索引 < 100) {
-        strip.setBrightness((索引 - 61) * 6.375)
-        strip.setPixelWhiteLED(1, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
-        strip.setPixelWhiteLED(2, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
-        strip.setPixelWhiteLED(3, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
-        strip.setPixelWhiteLED(4, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
-        strip.setPixelWhiteLED(5, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
-        strip.setPixelWhiteLED(6, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
+        randomR = randint(0, 255)
+        ramdomG = randint(0, 255)
+        randomB = randint(0, 255)
+        strip.setBrightness(randint(0, 255))
+        strip.setPixelWhiteLED(1, neopixel.rgb(randomR, ramdomG, randomB))
+        strip.setPixelWhiteLED(2, neopixel.rgb(randomR, ramdomG, randomB))
+        strip.setPixelWhiteLED(3, neopixel.rgb(randomR, ramdomG, randomB))
+        strip.setPixelWhiteLED(4, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
+        strip.setPixelWhiteLED(5, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
+        strip.setPixelWhiteLED(6, neopixel.rgb(255 - randomR, 255 - ramdomG, 255 - randomB))
     }
     while (索引 < 節奏陣列.length) {
     	
@@ -173,6 +176,9 @@ input.onButtonPressed(Button.B, function () {
 })
 let 隨機數A = 0
 let 隨機數B = 0
+let randomB = 0
+let ramdomG = 0
+let randomR = 0
 let 節奏陣列: number[] = []
 let 播放時間已播放ms = 0
 let 索引 = 0
