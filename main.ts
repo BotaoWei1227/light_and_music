@@ -2,7 +2,7 @@ input.onButtonPressed(Button.A, function () {
     dfplayermini.playFileInFolder(2, 2, dfplayermini.isRepeat.No)
     播放時間開始ms = input.runningTime()
     索引 = 0
-    while (索引 < 節奏陣列.length) {
+    while (索引 < 61) {
         strip.setBrightness(255)
         播放時間已播放ms = input.runningTime() - 播放時間開始ms
         if (播放時間已播放ms > 節奏陣列[索引] * 1000) {
@@ -15,6 +15,18 @@ input.onButtonPressed(Button.A, function () {
             索引 += 1
             strip.show()
         }
+    }
+    while (索引 < 100) {
+        strip.setBrightness((索引 - 61) * 6.375)
+        strip.setPixelWhiteLED(1, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
+        strip.setPixelWhiteLED(2, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
+        strip.setPixelWhiteLED(3, neopixel.rgb((索引 - 61) * 6.375, (索引 - 61) * 6.375, (索引 - 61) * 6.375))
+        strip.setPixelWhiteLED(4, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
+        strip.setPixelWhiteLED(5, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
+        strip.setPixelWhiteLED(6, neopixel.rgb(255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0), 255 - (索引 - 61) * (0 - 0)))
+    }
+    while (索引 < 節奏陣列.length) {
+    	
     }
 })
 function 燈光A () {
@@ -151,8 +163,7 @@ function 定義節奏陣列 () {
 input.onButtonPressed(Button.B, function () {
     _1 = 0
     for (let index = 0; index <= 50; index++) {
-        strip.showRainbow(_1 * 1.8, _1 * 1.8)
-        strip.setBrightness(index)
+    	
     }
     for (let index = 0; index <= 50; index++) {
         strip.showRainbow(_1 * 1.8, _1 * 1.8)
@@ -162,8 +173,8 @@ input.onButtonPressed(Button.B, function () {
 })
 let 隨機數A = 0
 let 隨機數B = 0
-let 播放時間已播放ms = 0
 let 節奏陣列: number[] = []
+let 播放時間已播放ms = 0
 let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
@@ -177,14 +188,13 @@ strip.setBrightness(10)
 strip.showRainbow(1, 360)
 定義節奏陣列()
 basic.forever(function () {
+    strip.showRainbow(randint(0, 360), randint(0, 360))
     for (let index = 0; index <= 50; index++) {
-        strip.showRainbow(index * 1.8, index * 1.8)
         strip.setBrightness(index)
         strip.show()
         basic.pause(50)
     }
     for (let index = 0; index <= 50; index++) {
-        strip.showRainbow(index * 1.8, index * 1.8)
         strip.setBrightness(50 - index)
         strip.show()
         basic.pause(50)
