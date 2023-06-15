@@ -11,6 +11,7 @@ input.onButtonPressed(Button.A, function () {
             }
             strip.rotate(1)
             strip.setPixelColor(索引 % 6, neopixel.colors(NeoPixelColors.White))
+            strip.setPixelColor(索引 % 6 + 1, neopixel.colors(NeoPixelColors.White))
             動作A()
             索引 += 1
             strip.show()
@@ -149,16 +150,9 @@ function 定義節奏陣列 () {
     basic.showNumber(節奏陣列.length)
 }
 input.onButtonPressed(Button.B, function () {
-    _1 = 0
-    for (let index = 0; index <= 50; index++) {
-    	
-    }
-    for (let index = 0; index <= 50; index++) {
-        strip.showRainbow(_1 * 1.8, _1 * 1.8)
-        strip.setBrightness(50 - index)
-        strip.show()
-    }
+	
 })
+let z = 0
 let 隨機數A = 0
 let 隨機數B = 0
 let 播放時間已播放ms = 0
@@ -166,7 +160,6 @@ let 節奏陣列: number[] = []
 let 索引 = 0
 let 播放時間開始ms = 0
 let strip: neopixel.Strip = null
-let _1 = 0
 KSB048.Servo(KSB048.ServoNum.S0, 90)
 dfplayermini.connect(SerialPin.P2, SerialPin.P1)
 dfplayermini.press(dfplayermini.playType.Stop)
@@ -176,14 +169,16 @@ strip.setBrightness(10)
 strip.showRainbow(1, 360)
 定義節奏陣列()
 basic.forever(function () {
-    strip.showRainbow(randint(0, 360), randint(0, 360))
+    z = randint(0, 360)
     for (let index = 0; index <= 50; index++) {
+        strip.showRainbow(z, z)
         strip.setBrightness(index)
         strip.show()
         basic.pause(50)
     }
-    for (let index = 0; index <= 50; index++) {
-        strip.setBrightness(50 - index)
+    for (let index2 = 0; index2 <= 50; index2++) {
+        strip.showRainbow(z, z)
+        strip.setBrightness(50 - index2)
         strip.show()
         basic.pause(50)
     }
