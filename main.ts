@@ -150,21 +150,14 @@ function 定義節奏陣列 () {
 }
 input.onButtonPressed(Button.B, function () {
     _1 = 0
-    for (let index = 0; index < 4000; index++) {
+    for (let index = 0; index <= 50; index++) {
         strip.showRainbow(_1 * 1.8, _1 * 1.8)
-        strip.setBrightness(_1)
-        _1 += 0.05
-        if (input.buttonIsPressed(Button.A) == false) {
-            break;
-        }
+        strip.setBrightness(index)
     }
-    for (let index = 0; index < 4000; index++) {
+    for (let index = 0; index <= 50; index++) {
         strip.showRainbow(_1 * 1.8, _1 * 1.8)
-        strip.setBrightness(_1)
-        _1 += -0.05
-        if (input.buttonIsPressed(Button.A) == false) {
-            break;
-        }
+        strip.setBrightness(50 - index)
+        strip.show()
     }
 })
 let 隨機數A = 0
@@ -184,5 +177,16 @@ strip.setBrightness(10)
 strip.showRainbow(1, 360)
 定義節奏陣列()
 basic.forever(function () {
-	
+    for (let index = 0; index <= 50; index++) {
+        strip.showRainbow(index * 1.8, index * 1.8)
+        strip.setBrightness(index)
+        strip.show()
+        basic.pause(50)
+    }
+    for (let index = 0; index <= 50; index++) {
+        strip.showRainbow(index * 1.8, index * 1.8)
+        strip.setBrightness(50 - index)
+        strip.show()
+        basic.pause(50)
+    }
 })
